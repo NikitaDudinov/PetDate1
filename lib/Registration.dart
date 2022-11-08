@@ -5,6 +5,7 @@ import 'package:petdate1/appcolors.dart';
 import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
 
 class Registration extends StatefulWidget {
   @override
@@ -205,8 +206,15 @@ class _RegistrationState extends State<Registration> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButtonDalee(onTap: () {
+                  MyButtonDalee(onTap: () async {
                     if (bloc.state.password == bloc.state.password1) {
+                      Dio dio=Dio();
+                      final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                        'login': bloc.state.login,
+                        'password': bloc.state.password,
+                        'email': bloc.state.email
+                      });
+                      print(res.data);
                       setState(() {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Name()));

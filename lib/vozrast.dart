@@ -4,6 +4,7 @@ import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/photo.dart';
 import 'package:petdate1/vid.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/bloc/state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -192,7 +193,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MyButtonDalee(onTap: (){
+                MyButtonDalee(onTap: () {
+                 // Dio dio=Dio();
+                 // final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                   // 'vozrast': bloc.state.vozrast,
+                    //'pol': bloc.state.pol
+                 // });
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Photo()));
                 })

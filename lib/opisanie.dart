@@ -7,7 +7,7 @@ import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/photo.dart';
 import 'package:petdate1/account/account.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:dio/dio.dart';
 class Opisanie extends StatefulWidget {
 
 
@@ -94,6 +94,10 @@ class _OpisanieState extends State<Opisanie> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         MyButtonDalee(onTap: () {
+                          //Dio dio=Dio();
+                          //final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                            //'opisanie': bloc.state.opisanie,
+                          //});
                           Navigator.of(context)
                               .push(MaterialPageRoute(builder: (context) => Account()));
                         })

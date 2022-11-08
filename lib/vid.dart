@@ -6,6 +6,7 @@ import 'package:petdate1/mybutton.dart';
 import 'appcolors.dart';
 import 'vozrast.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
 class Vid extends StatefulWidget {
   const Vid({Key? key}) : super(key: key);
 
@@ -104,6 +105,7 @@ class _VidState extends State<Vid> {
                           setState(() {
                             _character = value;
                             bloc.state.vid = 'Собака';
+
                           });
                         },
                       ),
@@ -169,6 +171,10 @@ class _VidState extends State<Vid> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     MyButtonDalee(onTap: () {
+                      //Dio dio=Dio();
+                      //final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                       // 'vid': bloc.state.vid,
+                      //});
                           Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => MyStatefulWidget()));
                     })

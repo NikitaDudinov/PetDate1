@@ -6,7 +6,7 @@ import 'package:petdate1/vid.dart';
 import 'package:petdate1/appcolors.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:dio/dio.dart';
 class Name extends StatefulWidget {
   @override
   State<Name> createState() => _NameState();
@@ -87,8 +87,12 @@ class _NameState extends State<Name> {
           SizedBox(
             height: size.height * 0.3335,
           ),
-          MyButtonDalee(onTap: (){
+          MyButtonDalee(onTap: ()  {
             if ( bloc.state.name != '' ) {
+              //Dio dio=Dio();
+              //final res = await dio.patch('http://192.168.0.11:3000/user', data: {
+                //'name': bloc.state.name,
+              //});
               setState(() {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => Vid()));
