@@ -8,6 +8,7 @@ import 'package:petdate1/photo.dart';
 import 'package:petdate1/account/account.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:petdate1/purpose.dart';
 class Opisanie extends StatefulWidget {
 
 
@@ -40,7 +41,7 @@ class _OpisanieState extends State<Opisanie> {
                         ),
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Geolokacia()));
+                              builder: (context) => Purpose()));
                         },
                         child: const Text(
                           'Назад',

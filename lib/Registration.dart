@@ -6,6 +6,8 @@ import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
+import 'bloc/state.dart';
+import 'nameuser.dart';
 
 class Registration extends StatefulWidget {
   @override
@@ -14,6 +16,7 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   @override
+
   void _showSnack() =>
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Неправильно введен пароль'),
@@ -61,14 +64,14 @@ class _RegistrationState extends State<Registration> {
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: size.height * 0.02,
+                height: size.height * 0.01,
               ),
               Text(
                 'Введите свои данные для регистрации',
                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: size.height * 0.02,
+                height: size.height * 0.03,
               ),
               Text(
                 'Логин',
@@ -208,16 +211,9 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   MyButtonDalee(onTap: () async {
                     if (bloc.state.password == bloc.state.password1) {
-                      Dio dio=Dio();
-                      final res = await dio.post('http://192.168.0.11:3000/user', data: {
-                        'login': bloc.state.login,
-                        'password': bloc.state.password,
-                        'email': bloc.state.email
-                      });
-                      print(res.data);
                       setState(() {
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Name()));
+                            MaterialPageRoute(builder: (context) => NameUser()));
                       });
                     } else {
                       setState(() {
@@ -236,3 +232,11 @@ class _RegistrationState extends State<Registration> {
 /*Padding(
 padding: EdgeInsets.only(
 bottom: MediaQuery.of(context).viewInsets.bottom)*/
+
+/* Dio dio=Dio();
+                      final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                        //'login': bloc.state.login,
+                        //'password': bloc.state.password,
+                        //'email': bloc.state.email
+                      });
+                      print(res.data);*/

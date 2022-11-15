@@ -3,6 +3,7 @@ import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/main.dart';
 import 'package:petdate1/name.dart';
 import 'package:petdate1/mybutton.dart';
+import 'package:petdate1/years.dart';
 import 'appcolors.dart';
 import 'vozrast.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -162,8 +163,7 @@ class _VidState extends State<Vid> {
                         },
                       ),
                     ),
-                  ],
-                ),
+                    ]),
                 SizedBox(
                   height: size.height * 0.0243,
                 ),
@@ -176,7 +176,7 @@ class _VidState extends State<Vid> {
                        // 'vid': bloc.state.vid,
                       //});
                           Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => MyStatefulWidget()));
+                              MaterialPageRoute(builder: (context) => Years()));
                     })
                   ],
                 )

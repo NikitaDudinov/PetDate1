@@ -3,6 +3,8 @@ import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/opisanie.dart';
 import 'package:petdate1/account/account.dart';
 import 'package:petdate1/photo.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:petdate1/purpose.dart';
 
 class Geolokacia extends StatefulWidget {
 
@@ -68,7 +70,7 @@ class _GeolokaciaState extends State<Geolokacia> {
               children: [
                 MyButtonDalee(onTap: (){
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Opisanie()));
+                      .push(MaterialPageRoute(builder: (context) => Purpose()));
                 })
               ],
             )

@@ -4,6 +4,7 @@ import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/photo.dart';
 import 'package:petdate1/vid.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/bloc/state.dart';
@@ -118,22 +119,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
             Text(
               'своего питомца',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-            ),
-            Image(
-              image: AssetImage('assets/images/img_3.png'), height: size.height * 0.22, width: size.width * 0.22,
-            ),
-            OutlinedButton(
-              onPressed: () {
-                bloc.state.vozrast = '${_selectedDate.value.day}.${_selectedDate.value
-                    .month}.${_selectedDate.value.year}';
-                setState(() {
-                  vozrast = '${_selectedDate.value.day}.${_selectedDate.value
-                      .month}.${_selectedDate.value.year}';
-                });
-                _restorableDatePickerRouteFuture.present();
-
-              },
-              child: Text(vozrast),
             ),
             SizedBox(
               height: size.height * 0.008,

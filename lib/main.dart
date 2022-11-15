@@ -9,7 +9,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return RepositoryProvider(
       lazy: false,
       create: (context) => AppCubit(),
       child: MaterialApp(

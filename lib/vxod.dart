@@ -6,6 +6,8 @@ import 'package:petdate1/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:petdate1/mybutton.dart';
 import 'package:petdate1/name.dart';
+
+import 'bloc/state.dart';
 class Vxod extends StatefulWidget {
   const Vxod({Key? key}) : super(key: key);
 
@@ -16,6 +18,17 @@ class Vxod extends StatefulWidget {
 class _VxodState extends State<Vxod> {
   String loginchik ='';
   String passwordic ='';
+  TextEditingController controller = TextEditingController();
+
+  void _incrementCounter() {
+    var controller;
+    context.read<UserCubit>().auth(
+        login: '1', password: '1', id: controller.value.text);
+  }
+
+  void _changeStateBack() {
+    context.read<UserCubit>().emit(UnAuthUserState());
+  }
   void _showSnack() =>
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text('Неправильно введены данные'),
@@ -83,6 +96,7 @@ class _VxodState extends State<Vxod> {
                       vertical: 10,
                     ),
                     child: TextField(
+                      controller: controller,
                       onChanged: (text) {
                         loginchik = text;
                       },
@@ -143,8 +157,10 @@ class _VxodState extends State<Vxod> {
                   MyButtonDalee(onTap: () {
                     if ((bloc.state.password == passwordic) & (bloc.state.login == loginchik)){
                       setState(() {
+                        _incrementCounter;
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Account()));
+                        //print(user.toString());
                       });
                     } else {
                       setState(() {

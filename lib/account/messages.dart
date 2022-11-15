@@ -60,6 +60,8 @@ class _MessagesState extends State<Messages> {
                   borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20.0),
                 topRight: Radius.circular(20.0),
+                bottomLeft: Radius.circular(20.0),
+                bottomRight: Radius.circular(20.0),
               )),
               child: SizedBox(
                   height: size.height * 0.14,
@@ -127,6 +129,8 @@ class _MessagesState extends State<Messages> {
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
                   )),
               child: SizedBox(
                   height: size.height * 0.14,
@@ -194,6 +198,8 @@ class _MessagesState extends State<Messages> {
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
                   )),
               child: SizedBox(
                   height: size.height * 0.14,
@@ -261,6 +267,8 @@ class _MessagesState extends State<Messages> {
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
                   )),
               child: SizedBox(
                   height: size.height * 0.14,

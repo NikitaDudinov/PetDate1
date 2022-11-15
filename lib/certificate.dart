@@ -7,17 +7,15 @@ import 'dart:async';
 import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
 
-
-class Photo extends StatefulWidget {
-
+class Certificate extends StatefulWidget {
+  const Certificate({Key? key}) : super(key: key);
 
   @override
-  State<Photo> createState() => _PhotoState();
+  State<Certificate> createState() => _CertificateState();
 }
 Uint8List? imageBytes;
 bool isImageNotNull = false;
-class _PhotoState extends State<Photo> {
-  @override
+class _CertificateState extends State<Certificate> {
   Future<void> pickPhoto() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
@@ -28,12 +26,22 @@ class _PhotoState extends State<Photo> {
       });
     }
   }
+  Future<void> pickPhoto1() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+    if (image != null) {
+      imageBytes = await image.readAsBytes();
+      setState(() {
+        isImageNotNull = true;
+      });
+    }
+  }
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-      body:SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
@@ -48,7 +56,7 @@ class _PhotoState extends State<Photo> {
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MyStatefulWidget()));
+                            builder: (context) => Home()));
                       },
                       child: const Text('Назад', style: TextStyle(color: Colors.black,
                           fontSize: 16,
@@ -58,33 +66,24 @@ class _PhotoState extends State<Photo> {
                 ],
               ),
               SizedBox(
-                  height: size.height * 0.085,
+                height: size.height * 0.02,
               ),
-              Text(
-                'Загрузите фото профиля',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: size.height * 0.01,
-              ),
-              Text(
-                'Загрузите фото вашего питомца, на ',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-              ),
-              Text(
-                'котором его хорошо видно',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyButtonCamera(onTap: ()=> pickPhoto1()),
+                  SizedBox(width: 20,),
+                  MyButtonPhotos(onTap: ()=> pickPhoto()),
+                ],
               ),
               SizedBox(
-                height: size.height * 0.15,
+                height: 10,
               ),
-              SizedBox(
-                height: size.height * 0.15,
-                width: size.width * 0.3,
-                child: ElevatedButton(
-                  onPressed: () => pickPhoto(),
-                  child: Icon(Icons.pets_sharp),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyButtonDox(onTap: (){})
+                ],
               ),
               Visibility(
                 visible: isImageNotNull,
@@ -93,25 +92,14 @@ class _PhotoState extends State<Photo> {
                     : Image.memory(imageBytes!),
               ),
               SizedBox(
-                height: size.height * 0.256,
+                height: size.height*0.6,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyButtonDalee(onTap: (){
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Home()));
-                  })
-                ],
-              )
+              MyButtonDalee(onTap: (){Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Geolokacia()));})
             ],
           ),
         ),
-      )
+      ),
     );
   }
 }
-
-
-
-
