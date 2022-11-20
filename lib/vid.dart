@@ -16,7 +16,6 @@ enum SingingCharacter { nul,dog, cat, ferret, crocodile, parrot }
 class _VidState extends State<Vid> {
   SingingCharacter? _character = SingingCharacter.nul;
   TextEditingController editingController = TextEditingController();
-  @override
   final duplicateItems = <String>[
     'альпака',
     'бантенг',
@@ -62,6 +61,7 @@ class _VidState extends State<Vid> {
   }
 
   void filterSearchResults(String query) {
+    query.trim();
     List<String> dummySearchList = <String>[];
     dummySearchList.addAll(duplicateItems);
     if (query.isNotEmpty) {
@@ -72,12 +72,14 @@ class _VidState extends State<Vid> {
         }
       });
       setState(() {
+        index = 1;
         items.clear();
         items.addAll(dummyListData);
       });
       return;
     } else {
       setState(() {
+        index = 0;
         items.clear();
         items.addAll(duplicateItems);
       });
@@ -86,6 +88,7 @@ class _VidState extends State<Vid> {
 
   int _radioVal = 0;
 
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery
         .of(context)
@@ -150,10 +153,6 @@ class _VidState extends State<Vid> {
                         child: TextField(
                           onChanged: (value) {
                             filterSearchResults(value);
-                            index = 1;
-                            if (value == '') {
-                              index = 0;
-                            };
                           },
                           controller: editingController,
                           decoration: InputDecoration(

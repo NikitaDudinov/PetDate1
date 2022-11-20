@@ -72,14 +72,16 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               width: 300.0,
               height: 50.0,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Registration()));
                 },
-                shape: StadiumBorder(),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white70),
+                  shape: MaterialStateProperty.all(StadiumBorder()),
+                ),
                 child: Text('Создать аккаунт'),
-                color: Colors.white70,
               ),
             ),
             SizedBox(
@@ -88,14 +90,16 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               width: 300.0,
               height: 50.0,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Vxod()));
                 },
-                shape: StadiumBorder(side: BorderSide(color: AppColors.myColor)),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all(StadiumBorder(side: BorderSide(color: AppColors.myColor))),
+                  backgroundColor: MaterialStateProperty.all(AppColors.myColor)
+                ),
                 child: Text('Войти'),
-                color: AppColors.myColor,
               ),
             ),
           ],
