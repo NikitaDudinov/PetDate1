@@ -17,6 +17,7 @@ class Photo extends StatefulWidget {
 Uint8List? imageBytes;
 bool isImageNotNull = false;
 class _PhotoState extends State<Photo> {
+
   @override
   Future<void> pickPhoto() async {
     final ImagePicker _picker = ImagePicker();
@@ -28,6 +29,7 @@ class _PhotoState extends State<Photo> {
       });
     }
   }
+  var index=0;
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -58,7 +60,7 @@ class _PhotoState extends State<Photo> {
                 ],
               ),
               SizedBox(
-                  height: size.height * 0.085,
+                  height: size.height * 0.06,
               ),
               Text(
                 'Загрузите фото профиля',
@@ -75,25 +77,35 @@ class _PhotoState extends State<Photo> {
                 'котором его хорошо видно',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
               ),
-              SizedBox(
-                height: size.height * 0.15,
-              ),
-              SizedBox(
-                height: size.height * 0.15,
-                width: size.width * 0.3,
-                child: ElevatedButton(
-                  onPressed: () => pickPhoto(),
-                  child: Icon(Icons.pets_sharp),
-                ),
-              ),
               Visibility(
-                visible: isImageNotNull,
-                child: imageBytes == null
-                    ? Container()
-                    : Image.memory(imageBytes!),
-              ),
-              SizedBox(
-                height: size.height * 0.256,
+                  visible: index == 0,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: size.height * 0.15,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.15,
+                        width: size.width * 0.3,
+                        child: ElevatedButton(
+                          onPressed: () {pickPhoto(); index = 1;},
+                          child: Icon(Icons.pets_sharp),
+                        ) ,
+                      ),
+                      SizedBox(
+                        height: size.height * 0.3,
+                      )
+                    ],
+                  )),
+              Visibility(
+                visible: index ==1,
+                child: Column(
+                  children: [
+                    imageBytes == null
+                        ? Container()
+                        : Image.memory(imageBytes!, height: size.height * 0.6, width:size.width * 0.6,),
+                  ],
+                )
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
