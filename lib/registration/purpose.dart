@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/account/account.dart';
+import 'package:petdate1/registration/Loading.dart';
 import 'package:petdate1/registration/dopphoto.dart';
 import 'package:petdate1/registration/geolokacia.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
 import 'package:petdate1/registration/opisanie.dart';
 import '../mywidgets/appcolors.dart';
 import '../bloc/bloc.dart';
+import 'Messages.dart';
 import 'geolokacia.dart';
 import 'vozrast.dart';
 import 'dart:async';
@@ -42,7 +44,7 @@ class _PurposeState extends State<Purpose> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -53,23 +55,33 @@ class _PurposeState extends State<Purpose> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Geolokacia()));
                       },
-                      child: const Text('Назад', style: TextStyle(color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500),),
+                      child: const Text(
+                        'Назад',
+                        style: TextStyle(
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
+
               Text(
                 'Для чего вам нужен',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Text(
                 'PetDate?',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
                 height: size.height * 0.02,
@@ -93,13 +105,8 @@ class _PurposeState extends State<Purpose> {
                     },
                     child: Card(
                       color: _widgetOne,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                          )),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),),
                       child: SizedBox(
                         height: size.height * 0.30,
                         width: size.width * 0.45,
@@ -109,18 +116,16 @@ class _PurposeState extends State<Purpose> {
                             Container(
                               width: MediaQuery.of(context).size.width,
                               height: size.height * 0.25,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/dogs.jpg"),
+                                    image: AssetImage("assets/images/dog1.png"),
                                     fit: BoxFit.fill),
                                 color: Colors.black,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
                             ),
                             Text(
                               'Дружба',
@@ -150,13 +155,8 @@ class _PurposeState extends State<Purpose> {
                     },
                     child: Card(
                       color: _widgetTwo,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                          )),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),),
                       child: SizedBox(
                         height: size.height * 0.30,
                         width: size.width * 0.45,
@@ -166,18 +166,16 @@ class _PurposeState extends State<Purpose> {
                             Container(
                               width: MediaQuery.of(context).size.width,
                               height: size.height * 0.25,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/dogs.jpg"),
+                                    image: AssetImage("assets/images/dog2.png"),
                                     fit: BoxFit.fill),
                                 color: Colors.black,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
                             ),
                             Text(
                               'Прогулка',
@@ -216,13 +214,8 @@ class _PurposeState extends State<Purpose> {
                     },
                     child: Card(
                       color: _widgetThree,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                          )),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),),
                       child: SizedBox(
                         height: size.height * 0.30,
                         width: size.width * 0.45,
@@ -232,18 +225,16 @@ class _PurposeState extends State<Purpose> {
                             Container(
                               width: MediaQuery.of(context).size.width,
                               height: size.height * 0.25,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/dogs.jpg"),
+                                    image: AssetImage("assets/images/dog3.png"),
                                     fit: BoxFit.fill),
                                 color: Colors.black,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
                             ),
                             Text(
                               'Связка',
@@ -274,13 +265,8 @@ class _PurposeState extends State<Purpose> {
                     },
                     child: Card(
                       color: _widgetFour,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                          )),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),),
                       child: SizedBox(
                         height: size.height * 0.30,
                         width: size.width * 0.45,
@@ -290,18 +276,16 @@ class _PurposeState extends State<Purpose> {
                             Container(
                               width: MediaQuery.of(context).size.width,
                               height: size.height * 0.25,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: AssetImage("assets/images/dogs.jpg"),
+                                    image: AssetImage("assets/images/dog4.png"),
                                     fit: BoxFit.fill),
                                 color: Colors.black,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
                             ),
                             Text(
                               'Общение',
@@ -317,6 +301,9 @@ class _PurposeState extends State<Purpose> {
                   ),
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.06,
+              ),
               Visibility(
                   visible: index5 !=0 ,
                   child: Row(
@@ -325,7 +312,7 @@ class _PurposeState extends State<Purpose> {
                       MyButtonDalee(onTap: () {
                         Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (context) => Account()));
+                                builder: (context) => Massages()));
                       })
                     ],
                   )

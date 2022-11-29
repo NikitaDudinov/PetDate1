@@ -10,6 +10,7 @@ class Vid extends StatefulWidget {
   const Vid({Key? key}) : super(key: key);
 
   @override
+
   State<Vid> createState() => _VidState();
 }
 enum SingingCharacter { nul,dog, cat, ferret, crocodile, parrot }
@@ -89,6 +90,11 @@ class _VidState extends State<Vid> {
   int _radioVal = 0;
 
   @override
+  void _showSnack() =>
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content: Text('Выберите вид животного',textAlign: TextAlign.center,),
+        duration: Duration(seconds: 2 ),
+      ));
   Widget build(BuildContext context) {
     Size size = MediaQuery
         .of(context)
@@ -103,7 +109,7 @@ class _VidState extends State<Vid> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(padding: EdgeInsets.only(left: 10)),
+                      Padding(padding: EdgeInsets.only(left: 20)),
                       SizedBox(
                         height: size.height * 0.06,
                         child: TextButton(
@@ -115,40 +121,44 @@ class _VidState extends State<Vid> {
                                 MaterialPageRoute(builder: (context) =>
                                     Name()));
                           },
-                          child: const Text('Назад', style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),),
+                          child: const Text(
+                            'Назад',
+                            style: TextStyle(
+                                color: Colors.black38,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: size.height * 0.03,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Выберите вид вашего',
-                        style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                  Text(
+                    'Выберите вид вашего',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Montserrat',
+                    ),
                   ),
                   Text(
                     'питомца',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Montserrat',
+                    ),
                   ),
+
                   SizedBox(
-                    height: size.height * 0.03,
+                    height: size.height * 0.02,
                   ),
+
                   Column(
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 5,
-                          vertical: 5,
+                          horizontal: 20,
+                          vertical: 10,
                         ),
                         child: TextField(
                           onChanged: (value) {
@@ -159,7 +169,7 @@ class _VidState extends State<Vid> {
                             hintText: 'Поиск',
                             prefixIcon: Icon(Icons.search),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15.0),
+                              borderRadius: BorderRadius.circular(20.0),
                               borderSide: BorderSide.none,
                             ),
                             filled: true,
@@ -248,6 +258,7 @@ class _VidState extends State<Vid> {
                           Column(
                             children:
                             <Widget>[
+
                               ListTile(
                                 title: const Text('Собака'),
                                 leading: Radio<SingingCharacter>(
@@ -314,8 +325,12 @@ class _VidState extends State<Vid> {
                                 ),
                               ),
                               SizedBox(
-                                height: size.height * 0.03,
+                                height: size.height * 0.24,
                               ),
+                              //Dio dio=Dio();
+                              //final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                              // 'vid': bloc.state.vid,
+                              //});
                               Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [

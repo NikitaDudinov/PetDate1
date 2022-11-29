@@ -18,9 +18,9 @@ class _RegistrationState extends State<Registration> {
   @override
 
   void _showSnack() =>
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Неправильно введен пароль'),
-        duration: Duration(seconds: 3 ),
+      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+        content: Text('Проверьте свои данные для регистрации',textAlign: TextAlign.center,),
+        duration: Duration(seconds: 2 ),
       ));
   late int index;
   bool _showPassword = false;
@@ -42,7 +42,7 @@ class _RegistrationState extends State<Registration> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -56,9 +56,9 @@ class _RegistrationState extends State<Registration> {
                       child: const Text(
                         'Назад',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),
@@ -66,21 +66,33 @@ class _RegistrationState extends State<Registration> {
               ),
               Text(
                 'Регистрация',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.02,
               ),
               Text(
                 'Введите свои данные для регистрации',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.04,
               ),
               Text(
                 'Логин',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -96,7 +108,7 @@ class _RegistrationState extends State<Registration> {
                       decoration: InputDecoration(
                         hintText: bloc.state.login,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -107,9 +119,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'e-mail',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -126,7 +145,7 @@ class _RegistrationState extends State<Registration> {
                       decoration: InputDecoration(
                         hintText: bloc.state.email,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -137,9 +156,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'Пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -162,7 +188,7 @@ class _RegistrationState extends State<Registration> {
                             },
                             icon: Icon(Icons.remove_red_eye)),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -173,9 +199,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'Повторите пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -198,7 +231,7 @@ class _RegistrationState extends State<Registration> {
                             },
                             icon: Icon(Icons.remove_red_eye)),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -210,24 +243,40 @@ class _RegistrationState extends State<Registration> {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.2,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButtonDalee(onTap: () async {
-                    if (bloc.state.password == bloc.state.password1) {
+                  MyButtonDalee(onTap: ()  {
+                    if (bloc.state.password == bloc.state.password1 && bloc.state.login != '' && bloc.state.email != '' && bloc.state.password != '' && bloc.state.password1 != '') {
                      // _incrementCounter;
                       setState(() {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => NameUser()));
                       });
-                    } else {
+                    } else  {
                       setState(() {
                         _showSnack();
                       });
                     }
                   })
+
+                  // MyButtonDalee(onTap: () async {
+                  //   if (bloc.state.password == bloc.state.password1 ) {
+                  //     // _incrementCounter;
+                  //     setState(() {
+                  //       Navigator.of(context).push(
+                  //           MaterialPageRoute(builder: (context) => NameUser()));
+                  //     });
+                  //   }
+                  //   else {
+                  //     setState(() {
+                  //       _showSnack();
+                  //     });
+                  //   }
+                  // })
+
                 ],
               )
             ]),

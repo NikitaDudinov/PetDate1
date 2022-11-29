@@ -19,25 +19,25 @@ class _AccountState extends State<Account> {
       const BottomNavigationBarItem(
           icon: Icon(
             Icons.location_on_outlined,
-            size: 32,
+            size: 34,
           ),
           label: ''),
       const BottomNavigationBarItem(
           icon: Icon(
             Icons.search,
-            size: 32,
+            size: 34,
           ),
           label: ''),
       const BottomNavigationBarItem(
           icon: Icon(
             Icons.maps_ugc_sharp,
-            size: 32,
+            size: 34,
           ),
           label: ''),
       const BottomNavigationBarItem(
           icon: Icon(
             Icons.pets_sharp,
-            size: 32,
+            size: 34,
           ),
           label: ''),
     ];

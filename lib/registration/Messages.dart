@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:petdate1/registration/Loading.dart';
 import 'package:petdate1/registration/PetPhoto.dart';
 import 'package:petdate1/registration/dopphoto.dart';
 import 'package:petdate1/registration/geolokacia.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/purpose.dart';
 import 'vozrast.dart';
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
 
-class Certificate extends StatefulWidget {
-  const Certificate({Key? key}) : super(key: key);
+class Massages extends StatefulWidget {
+  const Massages({Key? key}) : super(key: key);
 
   @override
-  State<Certificate> createState() => _CertificateState();
+  State<Massages> createState() => _CertificateState();
 }
-Uint8List? imageBytes;
-bool isImageNotNull = false;
-class _CertificateState extends State<Certificate> {
+class _CertificateState extends State<Massages> {
   int index = 0;
-  Future<void> pickPhoto() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      imageBytes = await image.readAsBytes();
-      setState(() {
-        isImageNotNull = true;
-      });
-    }
-  }
-  Future<void> pickPhoto1() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
-    if (image != null) {
-      imageBytes = await image.readAsBytes();
-      setState(() {
-        isImageNotNull = true;
-      });
-    }
-  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -54,11 +34,11 @@ class _CertificateState extends State<Certificate> {
                     height: size.height * 0.06,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 15),
+                        textStyle:  TextStyle(fontSize: 15),
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => PetPhoto()));
+                            builder: (context) => Purpose()));
                       },
                       child: const Text(
                         'Назад',
@@ -73,7 +53,15 @@ class _CertificateState extends State<Certificate> {
               ),
 
               Text(
-                'Сертификация',
+                'Какие уведомления вы',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
+              ),
+              Text(
+                'хотите получать',
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w700,
@@ -84,7 +72,7 @@ class _CertificateState extends State<Certificate> {
                 height: size.height * 0.02,
               ),
               Text(
-                'Загрузите фото вашего сертификата, на',
+                'Выберите какие уведомления вы хотите',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
@@ -93,7 +81,7 @@ class _CertificateState extends State<Certificate> {
               ),
 
               Text(
-                'котором его хорошо видно',
+                'получать от PetDate',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
@@ -103,46 +91,42 @@ class _CertificateState extends State<Certificate> {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+              Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: const Text('Мужской'),
+                      // leading: Radio<Pet>(
+                      //   value: Pet.men,
+                      //   groupValue: _pet,
+                      //   onChanged: (Pet? value) {
+                      //     setState(() {
+                      //       _pet = value;
+                      //       bloc.state.pol = 'Мужской';
+                      //     });
+                      //   },
+                      // ),
+                    ),
 
-                  MyButtonCamera(onTap: (){pickPhoto1(); index =1;}),
-                  SizedBox(
-                    width: size.width * 0.06,
-                  ),
-                  MyButtonPhotos(onTap: (){pickPhoto1(); index =1;}),
-                ],
+                    ListTile(
+                      title: const Text('Гермофродит'),
+                      // leading: Radio<Pet>(
+                      //   value: Pet.germ,
+                      //   groupValue: _pet,
+                      //   onChanged: (Pet? value) {
+                      //     setState(() {
+                      //       _pet = value;
+                      //       bloc.state.pol = 'Гермофродит';
+                      //     });
+                      //   },
+                      // ),
+                    ),]
               ),
+
               SizedBox(
-                height: size.height * 0.02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyButtonDox(onTap: (){})
-                ],
-              ),
-              Visibility(
-                  visible: index == 0,
-                  child: SizedBox(
-                    height: size.height * 0.4,
-                  )),
-              Visibility(
-                  visible: index ==1,
-                  child: Column(
-                    children: [
-                      imageBytes == null
-                          ? Container()
-                          : Image.memory(imageBytes!, height: size.height * 0.6, width:size.width * 0.6,),
-                    ],
-                  )
-              ),
-              SizedBox(
-                height: size.height * 0.12,
+                height: size.height * 0.2,
               ),
               MyButtonDalee(onTap: (){Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Geolokacia()));})
+                  builder: (context) => Loading()));})
             ],
           ),
         ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:petdate1/registration/PetPhoto.dart';
 import 'package:petdate1/registration/dopphoto.dart';
 import 'package:petdate1/registration/geolokacia.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/years.dart';
 import 'vozrast.dart';
 import 'dart:async';
 import 'dart:typed_data';
@@ -41,7 +43,7 @@ class _PhotoState extends State<Photo> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -49,51 +51,62 @@ class _PhotoState extends State<Photo> {
                         textStyle: const TextStyle(fontSize: 15),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MyStatefulWidget()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                            Years()));
                       },
-                      child: const Text('Назад', style: TextStyle(color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500),),
+                      child: const Text(
+                        'Назад',
+                        style: TextStyle(
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(
-                  height: size.height * 0.06,
-              ),
               Text(
                 'Загрузите фото профиля',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.02,
               ),
               Text(
-                'Загрузите фото вашего питомца, на ',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                'Загрузите фото, на котором вас хорошо',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Text(
-                'котором его хорошо видно',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                'видно',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Visibility(
                   visible: index == 0,
                   child: Column(
                     children: [
                       SizedBox(
-                        height: size.height * 0.15,
+                        height: size.height * 0.1,
+                      ),
+
+                      IconButton(
+                        icon: Image.asset("assets/images/chel.png"),
+                        iconSize: 200,
+                        onPressed: () {pickPhoto(); index = 1;},
                       ),
                       SizedBox(
-                        height: size.height * 0.15,
-                        width: size.width * 0.3,
-                        child: ElevatedButton(
-                          onPressed: () {pickPhoto(); index = 1;},
-                          child: Icon(Icons.pets_sharp),
-                        ) ,
-                      ),
-                      SizedBox(
-                        height: size.height * 0.3,
+                        height: size.height * 0.32,
                       )
                     ],
                   )),
@@ -112,7 +125,7 @@ class _PhotoState extends State<Photo> {
                 children: [
                   MyButtonDalee(onTap: (){
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Home()));
+                        .push(MaterialPageRoute(builder: (context) => PetPhoto()));
                   })
                 ],
               )

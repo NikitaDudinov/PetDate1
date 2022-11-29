@@ -30,45 +30,44 @@ class _SearchState extends State<Search> {
                     ),
                     Card(
                       color: AppColors.twoColor,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20.0),
-                            topRight: Radius.circular(20.0),
-                            bottomRight: Radius.circular(20.0),
-                            bottomLeft: Radius.circular(20.0),
-                          )),
+                      shape:  RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
                       child: SizedBox(
-                        height: size.height * 0.7,
-                        width: size.width * 0.8,
+                        height: size.height * 0.66,
+                        width: size.width * 0.9,
                         child: Column(
                           children: [
                             //Image(image: AssetImage("assets/images/dogs.jpg"), width: 120, height: 100, ),
                             Container(
                               width: MediaQuery.of(context).size.width,
                               height: size.height * 0.55,
-                              decoration: const BoxDecoration(
+                              decoration:  BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage("assets/images/dogs.jpg"),
                                     fit: BoxFit.fill),
                                 color: Colors.black,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.0),
-                                  topRight: Radius.circular(20.0),
-                                  bottomRight: Radius.circular(20.0),
-                                  bottomLeft: Radius.circular(20.0),
-                                ),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                             ),
                             SizedBox(
                               height: size.height * 0.006,
                             ),
-                            Text(
-                              _Cards[index],
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: size.width * 0.04,
+                                ),
+                                Text(
+                                  _Cards[index],
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
                             ),
+
                             SizedBox(
                               height: size.height * 0.0008,
                             ),

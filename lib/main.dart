@@ -64,54 +64,74 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.pets_sharp,
-                  size: 40,
-                ),
                 Padding(padding: EdgeInsets.only(right: 5)),
                 Text(
                   'PetDate',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 45,
+                      fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w600),
                 ),
               ],
             ),
             SizedBox(
-              height: size.height * 0.50,
+                height: size.height * 0.6,
             ),
+
             SizedBox(
               width: 300.0,
               height: 50.0,
               child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Registration()));
-                },
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.white70),
+                  backgroundColor: MaterialStateProperty.all(AppColors.myColor),
                   shape: MaterialStateProperty.all(StadiumBorder()),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-                child: Text('Создать аккаунт'),
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.03,
-            ),
-            SizedBox(
-              width: 300.0,
-              height: 50.0,
-              child: TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Vxod()));
                 },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all(StadiumBorder(side: BorderSide(color: AppColors.myColor))),
-                  backgroundColor: MaterialStateProperty.all(AppColors.myColor)
+                //shape: StadiumBorder(side: BorderSide(color: AppColors.myColor)),
+                child: Text('Войти',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500
+                  ),
                 ),
-                child: Text('Войти'),
+                //color: AppColors.myColor,
+              ),
+            ),
+
+            SizedBox(
+              height: size.height * 0.03,
+            ),
+
+            SizedBox(
+              width: 300.0,
+              height: 50.0,
+              child: TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(AppColors.myColor),
+                  shape: MaterialStateProperty.all(StadiumBorder()),
+                  foregroundColor: MaterialStateProperty.all(Colors.black),
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Registration()));
+                },
+                //shape: StadiumBorder(),
+                child: Text('Зарегестрироваться',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500
+                  ),
+                ),
+                //color: Colors.white70,
               ),
             ),
           ],

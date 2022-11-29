@@ -4,7 +4,7 @@ import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/registration/geolokacia.dart';
 import 'package:petdate1/main.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
-import 'package:petdate1/registration/photo.dart';
+import 'package:petdate1/registration/UserPhoto.dart';
 import 'package:petdate1/account/account.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';

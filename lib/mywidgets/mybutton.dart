@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:petdate1/mywidgets/appcolors.dart';
 
 
- class MyButtonDalee extends StatelessWidget {
+class MyButtonDalee extends StatelessWidget {
   void Function() onTap;
   MyButtonDalee(
       {required this.onTap});
@@ -14,8 +14,8 @@ import 'package:petdate1/mywidgets/appcolors.dart';
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: size.width * 0.9,
-        height: size.height * 0.085,
+        width: size.width * 0.5,
+        height: size.height * 0.07,
         decoration: BoxDecoration(
           color: AppColors.threeColor,
           borderRadius: BorderRadius.circular(20),
@@ -23,7 +23,7 @@ import 'package:petdate1/mywidgets/appcolors.dart';
         child: const Center(
           child: Text('Далее', style: TextStyle(
               color: Colors.black,
-              fontSize: 16,
+              fontSize: 24,
               fontWeight: FontWeight.w500
           ),),
         ),
@@ -37,25 +37,28 @@ class MyButtonVopros extends StatelessWidget {
       {required this.onTap});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       //onTapDown: (TapDownDetails? details) => onTapStart(),
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: 320,
+        width: 180,
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.twoColor,
           borderRadius: BorderRadius.circular(20),
         ),
         child:  Row(
+            mainAxisAlignment: MainAxisAlignment.start,
           children: [
-               SizedBox(
-                 width: 10,
-               ),
-               Icon(Icons.question_mark),
             SizedBox(
-              width: 10,
+              width: size.width * 0.02,
+            ),
+            IconButton(
+              icon: Image.asset("assets/images/question.png"),
+              iconSize: 20,
+              onPressed: () {},
             ),
                Text('Вопрос ответ', style: TextStyle(
               color: Colors.black,
@@ -73,26 +76,30 @@ class MyButtonPodelitsia extends StatelessWidget {
       {required this.onTap});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       //onTapDown: (TapDownDetails? details) => onTapStart(),
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: 320,
+        width: 180,
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.twoColor,
           borderRadius: BorderRadius.circular(20),
         ),
         child:  Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                width: 10,
+              width: size.width * 0.02,
+            ),
+              IconButton(
+                icon: Image.asset("assets/images/share.png"),
+                iconSize: 20,
+                onPressed: () {},
               ),
-              Icon(Icons.share),
-              SizedBox(
-                width: 10,
-              ),
+
               Text('Поделиться', style: TextStyle(
                 color: Colors.black,
                 fontSize: 16,
@@ -181,12 +188,13 @@ class MyButtonCamera extends StatelessWidget {
       {required this.onTap});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       //onTapDown: (TapDownDetails? details) => onTapStart(),
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: 125,
+        width: 160,
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.twoColor,
@@ -195,12 +203,9 @@ class MyButtonCamera extends StatelessWidget {
         child:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 10,
-              ),
               Icon(Icons.camera_alt),
               SizedBox(
-                width: 10,
+                width: size.width * 0.02,
               ),
               Text('Фото', style: TextStyle(
                   color: Colors.black,
@@ -219,12 +224,13 @@ class MyButtonPhotos extends StatelessWidget {
       {required this.onTap});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       //onTapDown: (TapDownDetails? details) => onTapStart(),
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: 125,
+        width: 160,
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.twoColor,
@@ -233,12 +239,9 @@ class MyButtonPhotos extends StatelessWidget {
         child:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 10,
-              ),
               Icon(Icons.photo),
               SizedBox(
-                width: 10,
+                width: size.width * 0.02,
               ),
               Text('Галерея', style: TextStyle(
                   color: Colors.black,
@@ -256,12 +259,13 @@ class MyButtonDox extends StatelessWidget {
       {required this.onTap});
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       //onTapDown: (TapDownDetails? details) => onTapStart(),
       //onTapUp: (TapUpDetails? details) => onTapEnd(),
       onTap: () => onTap(),
       child: Container(
-        width: 250,
+        width: 180,
         height: 50,
         decoration: BoxDecoration(
           color: AppColors.twoColor,
@@ -270,12 +274,9 @@ class MyButtonDox extends StatelessWidget {
         child:  Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 10,
-              ),
               Icon(Icons.document_scanner_sharp),
               SizedBox(
-                width: 10,
+                width: size.width * 0.02,
               ),
               Text('Документ', style: TextStyle(
                   color: Colors.black,

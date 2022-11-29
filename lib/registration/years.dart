@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
-import 'package:petdate1/registration/photo.dart';
+import 'package:petdate1/registration/UserPhoto.dart';
 import 'package:petdate1/registration/vid.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
@@ -34,7 +34,7 @@ class _YearsState extends State<Years> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(padding: EdgeInsets.only(left: 10)),
+                Padding(padding: EdgeInsets.only(left: 20)),
                 SizedBox(
                   height: size.height * 0.06,
                   child: TextButton(
@@ -45,35 +45,38 @@ class _YearsState extends State<Years> {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => Vid()));
                     },
-                    child: const Text('Назад', style: TextStyle(color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),),
+                    child: const Text(
+                      'Назад',
+                      style: TextStyle(
+                          color: Colors.black38,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
             Text(
               'Введите дату рождения',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              height: size.height * 0.005,
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Montserrat',
+              ),
             ),
             Text(
               'своего питомца',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Montserrat',
+              ),
             ),
             SizedBox(
-              height: size.height * 0.008,
+              height: size.height * 0.01,
             ),
             SizedBox(
-              height: size.height * 0.005,
-            ),
-            SizedBox(
-              height: size.height*0.25,
+              height: size.height * 0.24,
               child: ScrollDatePicker(
                 selectedDate: _selectedDate,
                 locale: Locale('zh'),
@@ -85,14 +88,18 @@ class _YearsState extends State<Years> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.012,
+              height: size.height * 0.04,
             ),
             Text(
               'Какой пол питомца',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'Montserrat',
+              ),
             ),
             SizedBox(
-              height: size.height * 0.024,
+              height: size.height * 0.02,
             ),
             Column(
                 children: <Widget>[
@@ -137,7 +144,7 @@ class _YearsState extends State<Years> {
                   ),]
             ),
             SizedBox(
-              height: size.height * 0.02,
+              height: size.height * 0.2,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/mywidgets/mybutton.dart';
-import 'package:petdate1/registration/certificate.dart';
 import 'package:petdate1/registration/opisanie.dart';
 import 'package:petdate1/account/account.dart';
 import 'package:petdate1/registration/UserPhoto.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:petdate1/registration/purpose.dart';
 
-class Geolokacia extends StatefulWidget {
+class Loading extends StatefulWidget {
 
   @override
-  State<Geolokacia> createState() => _GeolokaciaState();
+  State<Loading> createState() => _LoadingState();
 }
 
-class _GeolokaciaState extends State<Geolokacia> {
+class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -33,7 +32,7 @@ class _GeolokaciaState extends State<Geolokacia> {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Certificate()));
+                          builder: (context) => Purpose()));
                     },
                     child: const Text(
                       'Назад',
@@ -46,9 +45,11 @@ class _GeolokaciaState extends State<Geolokacia> {
                 ),
               ],
             ),
-
+            SizedBox(
+              height: size.height * 0.2,
+            ),
             Text(
-              'Поделиться локаций',
+              'Создаем ваш профиль',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w700,
@@ -56,10 +57,22 @@ class _GeolokaciaState extends State<Geolokacia> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.02,
+              height: size.height * 0.04,
+            ),
+
+            SizedBox(
+              width: 300,
+              height: 20,
+              child: LinearProgressIndicator(
+                backgroundColor: Color(0xc9E5C9C1),
+                valueColor: new AlwaysStoppedAnimation<Color>(Color(0xffB9848C)),
+              ),
+            ),
+            SizedBox(
+              height: size.height * 0.03,
             ),
             Text(
-              'Вам нужно делиться локацией, чтобы',
+              'Идет загрузка, подождите несколько',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
@@ -67,7 +80,7 @@ class _GeolokaciaState extends State<Geolokacia> {
               ),
             ),
             Text(
-              ' использовать PetDate',
+              ' секунд',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
@@ -75,18 +88,14 @@ class _GeolokaciaState extends State<Geolokacia> {
               ),
             ),
             SizedBox(
-              height: size.height * 0.16,
-            ),
-            Image( image: AssetImage("assets/images/img.png"), height: 200, width: 200,),
-            SizedBox(
-              height: size.height * 0.3,
+              height: size.height * 0.44,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MyButtonDalee(onTap: (){
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Purpose()));
+                      .push(MaterialPageRoute(builder: (context) => Account()));
                 })
               ],
             )
@@ -97,3 +106,21 @@ class _GeolokaciaState extends State<Geolokacia> {
   }
 }
 
+// class LoadingAction extends StatelessWidget {
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Flutter LinearProgressIndicator Example'),
+//       ),
+//       body: Center(
+//         child:  LinearProgressIndicator(
+//           backgroundColor: Colors.cyan[100],
+//           valueColor: new AlwaysStoppedAnimation<Color>(Colors.green),
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
