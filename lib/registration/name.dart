@@ -34,7 +34,7 @@ class _NameState extends State<Name> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -45,20 +45,30 @@ class _NameState extends State<Name> {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Registration()));
                       },
-                      child: const Text('Назад', style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),),
+                      child: const Text(
+                        'Назад',
+                        style: TextStyle(
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: size.height * 0.2,
+                height: size.height * 0.1,
               ),
               Text(
                 'Введите имя питомца',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.02,
               )
             ],
           ),
@@ -85,7 +95,7 @@ class _NameState extends State<Name> {
             ],
           ),
           SizedBox(
-            height: size.height * 0.3335,
+            height: size.height * 0.5,
           ),
           MyButtonDalee(onTap: ()  {
             if ( bloc.state.name != '' ) {

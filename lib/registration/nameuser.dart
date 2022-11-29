@@ -27,7 +27,7 @@ class _NameUserState extends State<NameUser> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -41,9 +41,9 @@ class _NameUserState extends State<NameUser> {
                       child: const Text(
                         'Назад',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),
@@ -51,24 +51,33 @@ class _NameUserState extends State<NameUser> {
               ),
               Text(
                 'Регистрация',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.02,
               ),
               Text(
                 'Введите свои данные',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.07,
+                height: size.height * 0.04,
               ),
               Text(
                 'Имя',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: size.height * 0.01,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -94,16 +103,19 @@ class _NameUserState extends State<NameUser> {
 
                 ],
               ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              Text(
-                'Фамилия',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-              ),
+
               SizedBox(
                 height: size.height * 0.01,
               ),
+              Text(
+                'Фамилия',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
+              ),
+
               Column(
                 children: <Widget>[
                   Padding(
@@ -129,7 +141,7 @@ class _NameUserState extends State<NameUser> {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.24,
+                height: size.height * 0.4,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

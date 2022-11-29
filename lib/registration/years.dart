@@ -34,7 +34,7 @@ class _YearsState extends State<Years> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(padding: EdgeInsets.only(left: 10)),
+                Padding(padding: EdgeInsets.only(left: 20)),
                 SizedBox(
                   height: size.height * 0.06,
                   child: TextButton(
@@ -45,9 +45,13 @@ class _YearsState extends State<Years> {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => Vid()));
                     },
-                    child: const Text('Назад', style: TextStyle(color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),),
+                    child: const Text(
+                      'Назад',
+                      style: TextStyle(
+                          color: Colors.black38,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ],

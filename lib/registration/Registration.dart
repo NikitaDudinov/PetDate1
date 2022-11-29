@@ -42,7 +42,7 @@ class _RegistrationState extends State<Registration> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Padding(padding: EdgeInsets.only(left: 20)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -56,9 +56,9 @@ class _RegistrationState extends State<Registration> {
                       child: const Text(
                         'Назад',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
+                            color: Colors.black38,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),
@@ -66,21 +66,33 @@ class _RegistrationState extends State<Registration> {
               ),
               Text(
                 'Регистрация',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.02,
               ),
               Text(
                 'Введите свои данные для регистрации',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.04,
               ),
               Text(
                 'Логин',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -107,9 +119,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'e-mail',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -137,9 +156,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'Пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -173,9 +199,16 @@ class _RegistrationState extends State<Registration> {
 
                 ],
               ),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Text(
                 'Повторите пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Montserrat',
+                ),
               ),
               Column(
                 children: <Widget>[
@@ -210,7 +243,7 @@ class _RegistrationState extends State<Registration> {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.03,
+                height: size.height * 0.2,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

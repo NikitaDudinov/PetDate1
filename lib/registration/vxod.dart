@@ -36,144 +36,159 @@ class _VxodState extends State<Vxod> {
       ));
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final bloc = context.read<AppCubit>();
     return Scaffold(
       body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Padding(padding: EdgeInsets.only(left: 10)),
-                  SizedBox(
-                    height: 40,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 15),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginPage()));
-                      },
-                      child: const Text(
-                        'Назад',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Вход',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Введите свои данные для входа',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Логин',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    child: TextField(
-                      controller: controller,
-                      onChanged: (text) {
-                        loginchik = text;
-                      },
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: BorderSide.none,
+          child: SafeArea(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(padding: EdgeInsets.only(left: 20)),
+                    SizedBox(
+                      height: size.height * 0.06,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 15),
                         ),
-                        filled: true,
-                        fillColor: AppColors.twoColor,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom))
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                    child: TextField(
-                      onChanged: (text) {
-                        passwordic = text;
-                      },
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          borderSide: BorderSide.none,
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => LoginPage()));
+                        },
+                        child: const Text(
+                          'Назад',
+                          style: TextStyle(
+                              color: Colors.black38,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700),
                         ),
-                        filled: true,
-                        fillColor: AppColors.twoColor,
                       ),
                     ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Вход',
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Montserrat',
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom))
-                ],
-              ),
-              SizedBox(
-                height: 100,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyButtonDalee(onTap: () {
-                    if ((bloc.state.password == passwordic) & (bloc.state.login == loginchik)){
-                      setState(() {
-                        //_incrementCounter;
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Account()));
-                        //print(user.toString());
-                      });
-                    } else {
-                      setState(() {
-                        _showSnack();
-                      });
-                    }
-                  })
-                ],
-              )
-            ],
-          ),
-        )
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Text(
+                  'Введите свои данные для входа',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.04,
+                ),
+                Text(
+                  'Логин',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      child: TextField(
+                        onChanged: (text) {
+                          loginchik = text;
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: AppColors.twoColor,
+                        ),
+                      ),
+                    ),
+                    // Padding(
+                    //     padding: EdgeInsets.only(
+                    //         bottom: MediaQuery.of(context).viewInsets.bottom))
+                  ],
+                ),
+                Text(
+                  'Пароль',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Montserrat',
+                  ),
+                ),
+                Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      child: TextField(
+                        onChanged: (text) {
+                          passwordic = text;
+                        },
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: AppColors.twoColor,
+                        ),
+                      ),
+                    ),
+                    // Padding(
+                    //     padding: EdgeInsets.only(
+                    //         bottom: MediaQuery.of(context).viewInsets.bottom))
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * 0.4,
+                ),
+                SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MyButtonDalee(onTap: () {
+                        if ((bloc.state.password == passwordic) & (bloc.state.login == loginchik)){
+                          setState(() {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => Account()));
+                          });
+                        } else {
+                          setState(() {
+                            _showSnack();
+                          });
+                        }
+                      })
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
       ),
     );
   }
+
+
 }
