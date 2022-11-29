@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/account/account.dart';
+import 'package:petdate1/account/chat.dart';
 import 'package:petdate1/account/maps.dart';
-import 'package:petdate1/account/poisk.dart';
-import 'package:petdate1/appcolors.dart';
+import 'package:petdate1/account/search.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,74 +55,80 @@ class _MessagesState extends State<Messages> {
             SizedBox(
               height: size.height * 0.02,
             ),
-            Card(
-              color: AppColors.fourColor,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-              )),
-              child: SizedBox(
-                  height: size.height * 0.14,
-                  width: size.width,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: size.width * 0.04,
-                      ),
-                      Column(
-                        children: [
-                          SizedBox(
-                            height: size.height * 0.02,
-                          ),
-                          CircleAvatar(
-                            backgroundImage:
-                                AssetImage("assets/images/dogs.jpg"),
-                            radius: size.height * 0.05,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: size.width * 0.04,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: size.height * 0.03,
-                          ),
-                          Text(
-                            'Алексей В',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            height: size.height * 0.01,
-                          ),
-                          Text(
-                            'Вы подружились недавно ',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
+            GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Chat()));
+              },
+              child: Card(
+                color: AppColors.fourColor,
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
+                    )),
+                child: SizedBox(
+                    height: size.height * 0.14,
+                    width: size.width,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: size.width * 0.04,
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: size.height * 0.02,
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        width: size.width * 0.09,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                              Icon(Icons.circle, color: AppColors.fifeColor,)
-                        ],
-                      )
-                    ],
-                  )),
+                            CircleAvatar(
+                              backgroundImage:
+                              AssetImage("assets/images/dogs.jpg"),
+                              radius: size.height * 0.05,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: size.width * 0.04,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: size.height * 0.03,
+                            ),
+                            Text(
+                              'Алексей В',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
+                            ),
+                            Text(
+                              'Вы подружились недавно ',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: size.width * 0.09,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.circle, color: AppColors.fifeColor,)
+                          ],
+                        )
+                      ],
+                    )),
+              ),
             ),
             Card(
               color: AppColors.fourColor,

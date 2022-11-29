@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/bloc/bloc.dart';
-import 'package:petdate1/name.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/years.dart';
-import 'appcolors.dart';
+import 'package:petdate1/registration/name.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/years.dart';
+import '../mywidgets/appcolors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 class Vid extends StatefulWidget {

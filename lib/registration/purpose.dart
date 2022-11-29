@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/dopphoto.dart';
-import 'package:petdate1/geolokacia.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/opisanie.dart';
-import 'appcolors.dart';
-import 'bloc/bloc.dart';
+import 'package:petdate1/account/account.dart';
+import 'package:petdate1/registration/dopphoto.dart';
+import 'package:petdate1/registration/geolokacia.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/opisanie.dart';
+import '../mywidgets/appcolors.dart';
+import '../bloc/bloc.dart';
+import 'geolokacia.dart';
 import 'vozrast.dart';
 import 'dart:async';
 import 'dart:typed_data';
@@ -22,7 +24,12 @@ class _PurposeState extends State<Purpose> {
   var index1 =0;
   var index2 = 0;
   var index3 = 0;
-  var index4 = 4;
+  var index4 = 0;
+  var index5 = 0;
+  Color _widgetOne = AppColors.twoColor;
+  Color _widgetTwo = AppColors.twoColor;
+  Color _widgetThree = AppColors.twoColor;
+  Color _widgetFour = AppColors.twoColor;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -71,9 +78,21 @@ class _PurposeState extends State<Purpose> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: (){index1 = 1;},
+                    onTap: (){
+                      setState(() {
+                        if (index1 == 0) {
+                          _widgetOne = AppColors.twoColor;
+                          index1 = 1;
+                          if ((index2 == 1) & (index3 == 1) & (index4 == 1)) {index5 = 0;}
+                        } else {
+                          _widgetOne = AppColors.threeColor;
+                          index1 = 0;
+                          index5 = 1;
+                        }
+                      });
+                    },
                     child: Card(
-                      color: AppColors.twoColor,
+                      color: _widgetOne,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20.0),
@@ -115,11 +134,22 @@ class _PurposeState extends State<Purpose> {
                       ),
                     ),
                   ),
-
                   GestureDetector(
-                    onTap: (){index2 = 1;},
+                    onTap: (){
+                      setState(() {
+                        if (index2 == 0) {
+                          _widgetTwo = AppColors.twoColor;
+                          index2 = 1;
+                          if ((index1 == 1) & (index3 == 1) & (index4 == 1)) {index5 = 0;}
+                        } else {
+                          _widgetTwo = AppColors.threeColor;
+                          index2 = 0;
+                          index5 = 1;
+                        }
+                      });
+                    },
                     child: Card(
-                      color: AppColors.twoColor,
+                      color: _widgetTwo,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20.0),
@@ -171,9 +201,21 @@ class _PurposeState extends State<Purpose> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: (){index3 = 1;},
+                    onTap: (){
+                      setState(() {
+                        if (index3 == 0) {
+                          _widgetThree = AppColors.twoColor;
+                          index3 = 1;
+                          if ((index2 == 1) & (index2 == 1) & (index4 == 1)) {index5 = 0;}
+                        } else {
+                          _widgetThree = AppColors.threeColor;
+                          index3 = 0;
+                          index5 = 1;
+                        }
+                      });
+                    },
                     child: Card(
-                      color: AppColors.twoColor,
+                      color: _widgetThree,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20.0),
@@ -218,10 +260,20 @@ class _PurposeState extends State<Purpose> {
 
                   GestureDetector(
                     onTap: (){
-                      index4 = 1;
+                      setState(() {
+                        if (index4 == 0) {
+                          _widgetFour = AppColors.twoColor;
+                          index4 = 1;
+                          if ((index2 == 1) & (index3 == 1) & (index1 == 1)) {index5 = 0;}
+                        } else {
+                          _widgetFour = AppColors.threeColor;
+                          index4 = 0;
+                          index5 = 1;
+                        }
+                      });
                     },
                     child: Card(
-                      color: AppColors.twoColor,
+                      color: _widgetFour,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20.0),
@@ -263,8 +315,20 @@ class _PurposeState extends State<Purpose> {
                       ),
                     ),
                   ),
-
                 ],
+              ),
+              Visibility(
+                  visible: index5 !=0 ,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MyButtonDalee(onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => Account()));
+                      })
+                    ],
+                  )
               )
             ],
           ),

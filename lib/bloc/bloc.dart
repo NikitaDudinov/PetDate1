@@ -48,7 +48,7 @@ class AppCubit extends Cubit<AppState> {
   }
 }
 
-class UserCubit extends Cubit<UserState>{
+/*class UserCubit extends Cubit<UserState>{
   UserCubit({required this.repository}) : super(UnAuthUserState()){
     repository.token.stream.listen((event) {_checkUserToken(event);});
     repository.user.stream.listen((event) {_checkUserData(event);});
@@ -84,4 +84,4 @@ class UserCubit extends Cubit<UserState>{
     }
   }
 
-}
+}*/

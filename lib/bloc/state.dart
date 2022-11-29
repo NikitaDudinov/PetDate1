@@ -74,7 +74,7 @@ class PrintText extends AppState {
       required super.surname});
 }
 
-abstract class UserState {}
+/*abstract class UserState {}
 
 class AuthUserState extends UserState {
   final User user;
@@ -88,4 +88,4 @@ class ServerError extends UserState {}
 
 class HaveTokenState extends UserState {}
 
-class UnAuthUserState extends UserState {}
+class UnAuthUserState extends UserState {}*/

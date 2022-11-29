@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/Registration.dart';
-import 'package:petdate1/appcolors.dart';
+import 'package:petdate1/registration/Registration.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:petdate1/vxod.dart';
+import 'package:petdate1/registration/vxod.dart';
+import 'repository/repository.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,13 +12,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider(
       lazy: false,
-      create: (context) => AppCubit(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+      create: (BuildContext context) => Repository(),
+      child: MultiBlocProvider(
+        providers: [
+          /*BlocProvider(
+            create: (BuildContext context) =>
+                UserCubit(repository: context.read<Repository>()),
+          ),*/
+          BlocProvider<AppCubit>(
+            create: (BuildContext context) => AppCubit(),
+          ),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const LoginPage(),
         ),
-        home: const LoginPage(),
       ),
     );
   }

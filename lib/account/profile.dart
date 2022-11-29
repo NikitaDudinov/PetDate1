@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:petdate1/bloc/bloc.dart';
-import 'package:petdate1/appcolors.dart';
-import 'package:petdate1/mybutton.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);

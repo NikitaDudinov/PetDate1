@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/main.dart';
-import 'package:petdate1/Registration.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/vid.dart';
-import 'package:petdate1/appcolors.dart';
+import 'package:petdate1/registration/Registration.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/vid.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';

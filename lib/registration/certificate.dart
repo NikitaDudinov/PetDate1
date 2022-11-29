@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/dopphoto.dart';
-import 'package:petdate1/geolokacia.dart';
-import 'package:petdate1/mybutton.dart';
+import 'package:petdate1/registration/dopphoto.dart';
+import 'package:petdate1/registration/geolokacia.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
 import 'vozrast.dart';
 import 'dart:async';
 import 'dart:typed_data';
@@ -16,6 +16,7 @@ class Certificate extends StatefulWidget {
 Uint8List? imageBytes;
 bool isImageNotNull = false;
 class _CertificateState extends State<Certificate> {
+  int index = 0;
   Future<void> pickPhoto() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
@@ -68,12 +69,30 @@ class _CertificateState extends State<Certificate> {
               SizedBox(
                 height: size.height * 0.02,
               ),
+              Text(
+                'Сертфтикация',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.001,
+              ),
+              Text(
+                'Загрузите фото вашего сертификата, на',
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+              ),
+              Text(
+                'котором его хорошо видно',
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButtonCamera(onTap: ()=> pickPhoto1()),
+                  MyButtonCamera(onTap: (){pickPhoto1(); index =1;}),
                   SizedBox(width: 20,),
-                  MyButtonPhotos(onTap: ()=> pickPhoto()),
+                  MyButtonPhotos(onTap: (){pickPhoto1(); index =1;}),
                 ],
               ),
               SizedBox(
@@ -86,13 +105,19 @@ class _CertificateState extends State<Certificate> {
                 ],
               ),
               Visibility(
-                visible: isImageNotNull,
-                child: imageBytes == null
-                    ? Container()
-                    : Image.memory(imageBytes!),
-              ),
-              SizedBox(
-                height: size.height*0.6,
+                  visible: index == 0,
+                  child: SizedBox(
+                    height: size.height*0.6,
+                  )),
+              Visibility(
+                  visible: index ==1,
+                  child: Column(
+                    children: [
+                      imageBytes == null
+                          ? Container()
+                          : Image.memory(imageBytes!, height: size.height * 0.6, width:size.width * 0.6,),
+                    ],
+                  )
               ),
               MyButtonDalee(onTap: (){Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Geolokacia()));})

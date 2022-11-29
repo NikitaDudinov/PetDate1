@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/main.dart';
-import 'package:petdate1/name.dart';
-import 'package:petdate1/appcolors.dart';
-import 'package:petdate1/mybutton.dart';
+import 'package:petdate1/registration/name.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
-import 'bloc/state.dart';
+import '../bloc/state.dart';
 import 'nameuser.dart';
 
 class Registration extends StatefulWidget {
@@ -25,7 +25,12 @@ class _RegistrationState extends State<Registration> {
   late int index;
   bool _showPassword = false;
   bool _showPassword1 = false;
+  //TextEditingController controller= TextEditingController();
+  /*void _incrementCounter() {
 
+    context.read<UserCubit>().auth(
+        login: context.read<AppCubit>().state.login, password: context.read<AppCubit>().state.password, id: controller.value.text);
+  }*/
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final bloc = context.read<AppCubit>();
@@ -115,6 +120,7 @@ class _RegistrationState extends State<Registration> {
                     ),
                     child: TextField(
                       onChanged: (text) {
+                        //controller = text as TextEditingController;
                         bloc.state.email = text;
                       },
                       decoration: InputDecoration(
@@ -211,6 +217,7 @@ class _RegistrationState extends State<Registration> {
                 children: [
                   MyButtonDalee(onTap: () async {
                     if (bloc.state.password == bloc.state.password1) {
+                     // _incrementCounter;
                       setState(() {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => NameUser()));
@@ -234,7 +241,7 @@ padding: EdgeInsets.only(
 bottom: MediaQuery.of(context).viewInsets.bottom)*/
 
 /* Dio dio=Dio();
-                      final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                      final res = await dio.post('http://192.168.0.11/3000/user', data: {
                         //'login': bloc.state.login,
                         //'password': bloc.state.password,
                         //'email': bloc.state.email

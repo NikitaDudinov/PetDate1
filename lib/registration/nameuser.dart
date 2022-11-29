@@ -1,45 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/account/account.dart';
-import 'package:petdate1/appcolors.dart';
+import 'package:petdate1/registration/Registration.dart';
 import 'package:petdate1/bloc/bloc.dart';
-import 'package:petdate1/main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/name.dart';
+import 'package:petdate1/bloc/bloc.dart';
+import 'package:petdate1/mywidgets/appcolors.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
 
-import 'bloc/state.dart';
-class Vxod extends StatefulWidget {
-  const Vxod({Key? key}) : super(key: key);
+import 'name.dart';
+class NameUser extends StatefulWidget {
+  const NameUser({Key? key}) : super(key: key);
 
   @override
-  State<Vxod> createState() => _VxodState();
+  State<NameUser> createState() => _NameUserState();
 }
 
-class _VxodState extends State<Vxod> {
-  String loginchik ='';
-  String passwordic ='';
-  TextEditingController controller = TextEditingController();
-
-  void _incrementCounter() {
-    var controller;
-    context.read<UserCubit>().auth(
-        login: '1', password: '1', id: controller.value.text);
-  }
-
-  void _changeStateBack() {
-    context.read<UserCubit>().emit(UnAuthUserState());
-  }
-  void _showSnack() =>
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Неправильно введены данные'),
-        duration: Duration(seconds: 3 ),
-      ));
+class _NameUserState extends State<NameUser> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final bloc = context.read<AppCubit>();
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
@@ -47,14 +29,14 @@ class _VxodState extends State<Vxod> {
                 children: [
                   Padding(padding: EdgeInsets.only(left: 10)),
                   SizedBox(
-                    height: 40,
+                    height: size.height * 0.06,
                     child: TextButton(
                       style: TextButton.styleFrom(
                         textStyle: const TextStyle(fontSize: 15),
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => LoginPage()));
+                            builder: (context) => Registration()));
                       },
                       child: const Text(
                         'Назад',
@@ -67,26 +49,26 @@ class _VxodState extends State<Vxod> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 10,
-              ),
               Text(
-                'Вход',
+                'Регистрация',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: 10,
+                height: size.height * 0.01,
               ),
               Text(
-                'Введите свои данные для входа',
+                'Введите свои данные',
                 style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: 30,
+                height: size.height * 0.07,
               ),
               Text(
-                'Логин',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                'Имя',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.01,
               ),
               Column(
                 children: <Widget>[
@@ -96,9 +78,8 @@ class _VxodState extends State<Vxod> {
                       vertical: 10,
                     ),
                     child: TextField(
-                      controller: controller,
                       onChanged: (text) {
-                        loginchik = text;
+                        bloc.state.username = text;
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -110,17 +91,18 @@ class _VxodState extends State<Vxod> {
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom))
+
                 ],
               ),
               SizedBox(
-                height: 30,
+                height: size.height * 0.02,
               ),
               Text(
-                'Пароль',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                'Фамилия',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.01,
               ),
               Column(
                 children: <Widget>[
@@ -131,7 +113,7 @@ class _VxodState extends State<Vxod> {
                     ),
                     child: TextField(
                       onChanged: (text) {
-                        passwordic = text;
+                        bloc.state.surname = text;
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -143,36 +125,26 @@ class _VxodState extends State<Vxod> {
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                          bottom: MediaQuery.of(context).viewInsets.bottom))
+
                 ],
               ),
               SizedBox(
-                height: 100,
+                height: size.height * 0.24,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButtonDalee(onTap: () {
-                    if ((bloc.state.password == passwordic) & (bloc.state.login == loginchik)){
+                  MyButtonDalee(onTap: () async {
                       setState(() {
-                        _incrementCounter;
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Account()));
-                        //print(user.toString());
+                            MaterialPageRoute(builder: (context) => Name()));
                       });
-                    } else {
-                      setState(() {
-                        _showSnack();
-                      });
-                    }
                   })
                 ],
               )
             ],
-          ),
-        )
+          )
+        ),
       ),
     );
   }

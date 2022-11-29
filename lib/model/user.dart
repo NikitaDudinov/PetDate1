@@ -1,4 +1,4 @@
-class User {
+/*class User {
   final String name;
   final int id;
   final String email;
@@ -23,4 +23,4 @@ class User {
   String toString(){
     return '$id\n$name\n$email\n$telephone';
   }
-}
+}*/

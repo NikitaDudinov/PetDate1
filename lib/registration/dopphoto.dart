@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:petdate1/certificate.dart';
-import 'package:petdate1/geolokacia.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/photo.dart';
-import 'appcolors.dart';
-import 'bloc/bloc.dart';
+import 'package:petdate1/registration/certificate.dart';
+import 'package:petdate1/registration/geolokacia.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/photo.dart';
+import '../mywidgets/appcolors.dart';
+import '../bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatefulWidget {

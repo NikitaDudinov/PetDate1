@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/dopphoto.dart';
-import 'package:petdate1/geolokacia.dart';
-import 'package:petdate1/mybutton.dart';
+import 'package:petdate1/registration/dopphoto.dart';
+import 'package:petdate1/registration/geolokacia.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
 import 'vozrast.dart';
 import 'dart:async';
 import 'dart:typed_data';

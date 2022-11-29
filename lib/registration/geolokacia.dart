@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/opisanie.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/opisanie.dart';
 import 'package:petdate1/account/account.dart';
-import 'package:petdate1/photo.dart';
+import 'package:petdate1/registration/photo.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:petdate1/purpose.dart';
+import 'package:petdate1/registration/purpose.dart';
 
 class Geolokacia extends StatefulWidget {
 

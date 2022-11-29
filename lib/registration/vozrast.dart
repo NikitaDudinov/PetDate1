@@ -1,35 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:petdate1/bloc/bloc.dart';
-import 'package:petdate1/mybutton.dart';
-import 'package:petdate1/photo.dart';
-import 'package:petdate1/vid.dart';
+import 'package:petdate1/mywidgets/mybutton.dart';
+import 'package:petdate1/registration/photo.dart';
+import 'package:petdate1/registration/vid.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
 import 'package:dio/dio.dart';
 import 'package:petdate1/bloc/bloc.dart';
 import 'package:petdate1/bloc/state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key, this.restorationId});
 
-class Years extends StatefulWidget {
-  const Years({Key? key}) : super(key: key);
+  final String? restorationId;
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+enum Pet { nul, men, women, germ }
+class _MyStatefulWidgetState extends State<MyStatefulWidget>
+    with RestorationMixin {
+  String vozrast = 'Указать возраст';
+  Pet? _pet = Pet.nul;
+  // In this example, the restoration ID for the mixin is passed in through
+  // the [StatefulWidget]'s constructor.
+  @override
+  String? get restorationId => widget.restorationId;
+
+  final RestorableDateTime _selectedDate =
+  RestorableDateTime(DateTime(2021, 7, 25));
+  late final RestorableRouteFuture<DateTime?> _restorableDatePickerRouteFuture =
+  RestorableRouteFuture<DateTime?>(
+    onComplete: _selectDate,
+    onPresent: (NavigatorState navigator, Object? arguments) {
+      return navigator.restorablePush(
+        _datePickerRoute,
+        arguments: _selectedDate.value.millisecondsSinceEpoch,
+      );
+    },
+  );
+
+  static Route<DateTime> _datePickerRoute(BuildContext context,
+      Object? arguments,) {
+    return DialogRoute<DateTime>(
+      context: context,
+      builder: (BuildContext context) {
+        return DatePickerDialog(
+          restorationId: 'date_picker_dialog',
+          initialEntryMode: DatePickerEntryMode.calendarOnly,
+          initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
+          firstDate: DateTime(2021),
+          lastDate: DateTime(2022),
+        );
+      },
+    );
+  }
 
   @override
-  State<Years> createState() => _YearsState();
-}
-enum Pet { nul, men, women, germ }
+  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
+    registerForRestoration(_selectedDate, 'selected_date');
+    registerForRestoration(
+        _restorableDatePickerRouteFuture, 'date_picker_route_future');
+  }
 
-class _YearsState extends State<Years> {
-  String s = '';
-  Pet? _pet = Pet.nul;
-  DateTime _selectedDate = DateTime.now();
+  void _selectDate(DateTime? newSelectedDate) {
+    if (newSelectedDate != null) {
+      setState(() {
+        _selectedDate.value = newSelectedDate;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              'Сохранено: ${_selectedDate.value.day}.${_selectedDate.value
+                  .month}.${_selectedDate.value.year} '),
+        ));
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final bloc = context.read<AppCubit>();
-    return SafeArea(child: Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+    return SafeArea(child:Scaffold(
+        body:
+        Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -52,6 +105,7 @@ class _YearsState extends State<Years> {
                 ),
               ],
             ),
+
             SizedBox(
               height: size.height * 0.02,
             ),
@@ -69,30 +123,12 @@ class _YearsState extends State<Years> {
             SizedBox(
               height: size.height * 0.008,
             ),
-            SizedBox(
-              height: size.height * 0.005,
-            ),
-            SizedBox(
-              height: size.height*0.25,
-              child: ScrollDatePicker(
-                selectedDate: _selectedDate,
-                locale: Locale('zh'),
-                onDateTimeChanged: (DateTime value) {
-                  setState(() {
-                    _selectedDate = value;
-                  });
-                },
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.012,
-            ),
             Text(
               'Какой пол питомца',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
             ),
             SizedBox(
-              height: size.height * 0.024,
+              height: size.height * 0.006,
             ),
             Column(
                 children: <Widget>[
@@ -143,23 +179,23 @@ class _YearsState extends State<Years> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MyButtonDalee(onTap: () {
-                  // Dio dio=Dio();
-                  // final res = await dio.post('http://192.168.0.11:3000/user', data: {
-                  // 'vozrast': bloc.state.vozrast,
-                  //'pol': bloc.state.pol
-                  // });
-                  s = _selectedDate.toString();
-                  for (int i = 0; i < 11; i++) {
-                    bloc.state.vozrast = bloc.state.vozrast + s[i];
-                  }
+                 // Dio dio=Dio();
+                 // final res = await dio.post('http://192.168.0.11:3000/user', data: {
+                   // 'vozrast': bloc.state.vozrast,
+                    //'pol': bloc.state.pol
+                 // });
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => Photo()));
                 })
               ],
-            ) ],
-        ),
+            )
+          ],
+        )
+    ) );
 
-      )
-    ));
   }
 }
+
+
+
+

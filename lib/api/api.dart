@@ -1,4 +1,4 @@
-import '../exeptions/exeptions.dart';
+/*import '../exeptions/exeptions.dart';
 import '../model/user.dart';
 import 'package:dio/dio.dart';
 
@@ -8,16 +8,16 @@ class Api {
     return 'gvrkjbnsDLKnDKBJnf';
   }
 
-  Future<User> getUserInfo({required String id}) async {
+  Future<User> getUserInfo({required String id, required String login, required String password,}) async {
     Dio dio = Dio();
     if(int.tryParse(id) == null){
       throw ServerException();
     }
     try {
       if(int.parse(id) > 12){
-        throw DioError(requestOptions: RequestOptions(path: 'http://172.20.10.10:3000/user/$id'), type: DioErrorType.cancel);
+        throw DioError(requestOptions: RequestOptions(path: 'http://192.168.0.26:3000/user$id'), type: DioErrorType.cancel);
       }
-      final res = await dio.get('http://172.20.10.10:3000/user/$id',);
+      final res = await dio.get('http://192.168.0.26:3000/user$id',);
       print(res);
       return User.fromJson(res.data);
     } on DioError catch (error){
@@ -27,4 +27,4 @@ class Api {
       throw ServerException();
     }
   }
-}
+}*/
