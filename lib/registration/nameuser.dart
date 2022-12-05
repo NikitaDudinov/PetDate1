@@ -15,13 +15,7 @@ class NameUser extends StatefulWidget {
 }
 
 class _NameUserState extends State<NameUser> {
-
   @override
-  void _showSnack() =>
-      ScaffoldMessenger.of(context).showSnackBar( SnackBar(
-        content: Text('Введите данные',textAlign: TextAlign.center,),
-        duration: Duration(seconds: 2 ),
-      ));
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final bloc = context.read<AppCubit>();
@@ -33,7 +27,7 @@ class _NameUserState extends State<NameUser> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 20)),
+                  Padding(padding: EdgeInsets.only(left: 10)),
                   SizedBox(
                     height: size.height * 0.06,
                     child: TextButton(
@@ -47,43 +41,34 @@ class _NameUserState extends State<NameUser> {
                       child: const Text(
                         'Назад',
                         style: TextStyle(
-                            color: Colors.black38,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700),
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                   ),
                 ],
               ),
               Text(
-                'Имя пользователя',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Montserrat',
-                ),
+                'Регистрация',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: size.height * 0.02,
+                height: size.height * 0.01,
               ),
               Text(
                 'Введите свои данные',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Montserrat',
-                ),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: size.height * 0.04,
+                height: size.height * 0.07,
               ),
               Text(
                 'Имя',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Montserrat',
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.01,
               ),
               Column(
                 children: <Widget>[
@@ -98,7 +83,7 @@ class _NameUserState extends State<NameUser> {
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(15.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -109,19 +94,16 @@ class _NameUserState extends State<NameUser> {
 
                 ],
               ),
-
               SizedBox(
-                height: size.height * 0.01,
+                height: size.height * 0.02,
               ),
               Text(
                 'Фамилия',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Montserrat',
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
-
+              SizedBox(
+                height: size.height * 0.01,
+              ),
               Column(
                 children: <Widget>[
                   Padding(
@@ -135,7 +117,7 @@ class _NameUserState extends State<NameUser> {
                       },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(15.0),
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
@@ -147,27 +129,19 @@ class _NameUserState extends State<NameUser> {
                 ],
               ),
               SizedBox(
-                height: size.height * 0.42,
+                height: size.height * 0.24,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButtonDalee(onTap: ()  {
-                    if (bloc.state.username != '' && bloc.state.surname != '') {
-                      // _incrementCounter;
+                  MyButtonDalee(onTap: () async {
                       setState(() {
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Name()));
                       });
-                    } else  {
-                      setState(() {
-                        _showSnack();
-                      });
-                    }
                   })
                 ],
               )
-
             ],
           )
         ),
